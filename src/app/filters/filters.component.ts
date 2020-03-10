@@ -52,7 +52,6 @@ export class FiltersComponent implements OnInit {
     
     checkedVal(species: string, isChecked: boolean) {
       let speciesFormArray = <FormArray>this.myForm.controls.species;
-  
       if (isChecked) {
         speciesFormArray.push(new FormControl(species));
       } else {
