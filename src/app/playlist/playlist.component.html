@@ -1,0 +1,60 @@
+
+<div class="searchBox">
+    <div class="col-xs-12">
+        <div class="row">
+                <div class="col-sm-9 col-xs-12">               
+                <div class="search">
+                    <h4>Search By Name:</h4>    
+                    <input type="text" value="" name="search"  #searchVal id="search" placeholder="Type to search" (keyup) = "updateFilterByName($event)"/>
+                    </div>  
+                </div> 
+                <div class="col-sm-3 col-xs-12">
+                    <div class="sorting">
+                        <h4>Sort By Id </h4>
+                        <select name="sorting" id="sorting" (change)="sortingWithDesc=$event.target.value">
+                            <option value="false">Ascending</option>
+                            <option value="true" >Descending</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="playlistDetails">
+    <div class="col-xs-12">
+        <div class="row ">
+            <div class="col-sm-3  col-6" *ngFor="let playlist of (tempPlayList | sorting:sortingWithId:sortingWithDesc) ">
+                <div class="list">
+                    <div class="listImg">
+                         <div class="image">
+                        <img [src]="playlist.image" class="rounded img-fluid img-responsive"/>
+                        <div class="characterName">
+                            <p class="name">{{playlist.name}}</p>
+                            <p class="id"><span>id: {{playlist.id}}</span> - <span>{{playlist.created | timeinterval}}</span></p>
+                        </div>
+                    </div>  
+                         
+                   <div class="listofDetails">
+                       <!--{{cards|json}}-->               
+                       <div class="detail">
+                           <span class="detailHeading" >Status</span><span class="detailedValue">{{playlist.status}}</span>
+                       </div>
+                       <div class="detail">
+                           <span class="detailHeading">Species</span><span class="detailedValue">{{playlist.species}}</span>
+                       </div>
+                       <div class="detail">
+                           <span class="detailHeading">Gender</span><span class="detailedValue">{{playlist.gender}}</span>
+                       </div>
+                       <div class="detail">
+                           <span class="detailHeading">Origin</span><span class="detailedValue">origin</span>
+                       </div>
+                       <div class="detail">
+                           <span class="detailHeading">Last Location</span><span class="detailedValue">Last Location</span>
+                       </div>
+                   </div>
+                </div>        
+            </div>
+        </div>
+        </div>
+    </div>
+
